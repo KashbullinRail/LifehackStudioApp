@@ -5,7 +5,7 @@ import com.example.lifehackstudioapp.base.attempt
 
 class CompanyDetailInteractor(private val repository: CompanyDetailRepository) {
 
-    suspend fun getCompaniesList() = attempt {
+    suspend fun getCompanyDetail() = attempt {
         repository.getCompanyDetail()
     }
 

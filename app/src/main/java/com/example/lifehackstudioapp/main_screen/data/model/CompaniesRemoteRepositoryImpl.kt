@@ -9,13 +9,9 @@ import com.example.lifehackstudioapp.main_screen.domain.CompaniesRepository
 class CompaniesRemoteRepositoryImpl(private val source: CompaniesRemoteSource) : CompaniesRepository {
 
     override suspend fun getCompaniesList(): List<CompanyModel> {
-        return source.getArticles().map {
+        return source.getCompaniesList().map {
             it.toDomain()
         }
-    }
-
-    override suspend fun getCompanyDetail(): CompanyModel {
-        TODO("Not yet implemented")
     }
 
 }
