@@ -10,10 +10,12 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.lifehackstudioapp.R
 import com.example.lifehackstudioapp.databinding.FragmentMainScreenBinding
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 const val PUT_TO_DETAIL_FRAGMENT = "PUT_TO_DETAIL_FRAGMENT"
+
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
@@ -29,13 +31,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
-
         binding.rvMainScreen.adapter = adapter
 
-
-
     }
-
 
     private fun render(viewState: ViewState){
         when (viewState.state) {
@@ -47,12 +45,13 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
                 adapter.setData(viewState.companyShown)
             }
             State.Error -> {
+               //TODO for future implementation, when the backend is ready
             }
             State.DetailLoad -> {
                 binding.pbMainScreen.isVisible = false
                 val articleDetail = viewState.companyDetail
-                //TODO redirect data transfer to safeArgs
-                val bundle = bundleOf(PUT_TO_DETAIL_FRAGMENT to articleDetail)
+                Log.d("TAGG", "${viewState.companyDetail}")
+//                val bundle = bundleOf(PUT_TO_DETAIL_FRAGMENT to articleDetail)
 //                findNavController().navigate(R.id.detailFragment, bundle)
             }
         }

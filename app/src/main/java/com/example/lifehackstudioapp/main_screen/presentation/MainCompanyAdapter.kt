@@ -11,8 +11,10 @@ import com.example.lifehackstudioapp.R
 import com.example.lifehackstudioapp.databinding.ItemCompanyAdapterBinding
 import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 
+
 const val COMPANY_ITEM = "COMPANY_ITEM"
-const val URL_IMAGE = "https://source.unsplash.com/random"
+const val URL_IMAGE = "https://lifehack.studio/test_task/"
+
 
 class MainCompanyAdapter(
     val onItemClicked: (Int) -> Unit
@@ -49,17 +51,15 @@ class MainCompanyAdapter(
 
             //setting variables
             holder.itemView.tag = company
-            tvId.text = company.id
             tvNameCompany.text = company.name
-            tvImage.text = company.image
 
             Glide
                 .with(ivCompany.context)
-                .load(URL_IMAGE)
+                .load(URL_IMAGE + company.image)
                 .placeholder(R.drawable.ic_image)
                 .error(R.drawable.ic_image_not_supported)
                 .transition(DrawableTransitionOptions.withCrossFade())
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .centerCrop()
                 .into(ivCompany)
 

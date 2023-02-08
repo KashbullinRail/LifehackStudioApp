@@ -32,6 +32,7 @@ class MainScreenViewModel(
                     companiesInteractor.getCompaniesList().fold(
                         onError = {
                             Log.e("ERROR", it.localizedMessage)
+                            State.Error
                         },
                         onSuccess = {
                             processDataEvent(DateEvent.OnLoadCompaniesSucceed(it))
@@ -45,6 +46,12 @@ class MainScreenViewModel(
                     companiesList = event.companies,
                     companyShown = event.companies,
                     state = State.Content
+                )
+            }
+            is UIEvent.OnCompanyClicked -> {
+                return previousState.copy(
+                    companyDetail = previousState.companyShown[event.index],
+                    state = State.DetailLoad
                 )
             }
 

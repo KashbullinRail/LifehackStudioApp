@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">LifehackStudioApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="_123">123</string>
+
+    <string name="_123">ID</string>
     <string name="image_name">image_name</string>
+
+    <string name="error">Что-то пошло не так</string>
+
+
 </resources>
