@@ -15,4 +15,5 @@ interface LifeHackAPI {
     suspend fun getSelectCompany(
         @Query("id") id: String = "",
     ): List<CompanyRemoteModel>
+
 }
