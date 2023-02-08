@@ -1,5 +1,6 @@
 # LifehackStudioApp
-The application is built on mvi
+The application is built on MVI
+
 The assembled apk file can be downloaded from the link:
 https://drive.google.com/drive/folders/1SaWfYDFDJhu-JDNsL_L08D1GbyHReWbn?usp=sharing
 
