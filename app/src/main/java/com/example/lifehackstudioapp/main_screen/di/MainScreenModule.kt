@@ -30,7 +30,7 @@ val mainScreenModule = module {
     }
 
     viewModel {
-        MainScreenViewModel(companiesInteractor = get())
+        MainScreenViewModel(companiesInteractor = get(), companyDetailInteractor = get())
     }
 
 }

@@ -8,9 +8,9 @@ fun CompanyDetailRemoteModel.toDomain() = CompanyDetailModel(
     id = id ?: "",
     name = name ?: "",
     image = img ?: "",
-    description = description,
-    latitude = latitude.toString(),
-    longitude = longitude.toString(),
-    websiteAddress =websiteAddress,
-    phoneNumber = phoneNumber
+    description = description?:"",
+    latitude = lon ?: 0.0,
+    longitude = lon ?: 0.0,
+    websiteAddress = www?:"",
+    phoneNumber = phone?:""
 )

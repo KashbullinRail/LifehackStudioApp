@@ -4,16 +4,19 @@ import com.example.lifehackstudioapp.detail_screen.data.CompanyDetailRemoteSourc
 import com.example.lifehackstudioapp.detail_screen.data.toDomain
 import com.example.lifehackstudioapp.detail_screen.domain.CompanyDetailModel
 import com.example.lifehackstudioapp.detail_screen.domain.CompanyDetailRepository
-import com.example.lifehackstudioapp.main_screen.data.CompaniesRemoteSource
-import com.example.lifehackstudioapp.main_screen.data.toDomain
-import com.example.lifehackstudioapp.main_screen.domain.CompaniesRepository
-import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 
 
-class CompanyDetailRemoteRepositoryImpl(private val source: CompanyDetailRemoteSource) : CompanyDetailRepository {
+class CompanyDetailRemoteRepositoryImpl(private val source: CompanyDetailRemoteSource) :
+    CompanyDetailRepository {
 
-    override suspend fun getCompanyDetail(companyId: String): CompanyDetailModel {
-       return source.getCompanyDetail(companyId).toDomain()
+    override suspend fun getCompaniesList(): List<CompanyDetailModel> {
+        return source.getCompaniesList().map {
+            it.toDomain()
+        }
+    }
+
+    override fun setCompanyId(companyId: String) {
+        source.setCompanyId(companyId)
     }
 
 }

@@ -10,5 +10,5 @@ data class CompanyRemoteModel(
     @SerializedName("name")
     val name: String?,
     @SerializedName("img")
-    val img: String?,
+    val img: String?
 )

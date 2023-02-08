@@ -5,8 +5,8 @@ data class CompanyDetailModel(
     val name: String,
     val image: String,
     val description: String,
-    val latitude: String,
-    val longitude: String,
+    val latitude: Double,
+    val longitude: Double,
     val websiteAddress: String,
     val phoneNumber: String
 )

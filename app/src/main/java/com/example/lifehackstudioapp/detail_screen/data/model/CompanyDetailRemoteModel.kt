@@ -12,13 +12,13 @@ data class CompanyDetailRemoteModel(
     @SerializedName("img")
     val img: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("lat")
-    val latitude: Long,
+    val lat: Double?,
     @SerializedName("lon")
-    val longitude: Long,
+    val lon: Double?,
     @SerializedName("www")
-    val websiteAddress: String,
+    val www: String?,
     @SerializedName("phone")
-    val phoneNumber: String
+    val phone: String?
 )

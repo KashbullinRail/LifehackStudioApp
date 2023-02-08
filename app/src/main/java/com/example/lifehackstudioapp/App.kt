@@ -1,6 +1,7 @@
 package com.example.lifehackstudioapp
 
 import android.app.Application
+import com.example.lifehackstudioapp.detail_screen.di.detailScreenModule
 import com.example.lifehackstudioapp.main_screen.di.mainScreenModule
 import com.example.newsfetcher.di.networkModule
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +18,8 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 networkModule,
-                mainScreenModule
+                mainScreenModule,
+                detailScreenModule
             )
         }
     }

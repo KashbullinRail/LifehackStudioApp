@@ -7,5 +7,5 @@ import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 fun CompanyRemoteModel.toDomain() = CompanyModel(
     id = id ?: "",
     name = name ?: "",
-    image = img ?: ""
+    image = img ?: "",
 )
