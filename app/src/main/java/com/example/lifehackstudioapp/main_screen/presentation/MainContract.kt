@@ -19,7 +19,7 @@ data class ViewState(
 )
 
 sealed class UIEvent : Event {
-    data class OnCompanyClicked(val index: Int, val type: String) : UIEvent()
+    data class OnCompanyClicked(val index: Int) : UIEvent()
 }
 
 sealed class DateEvent : Event {
