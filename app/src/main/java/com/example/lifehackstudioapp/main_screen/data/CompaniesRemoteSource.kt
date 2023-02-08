@@ -5,8 +5,10 @@ import com.example.lifehackstudioapp.main_screen.data.model.CompanyRemoteModel
 
 class CompaniesRemoteSource(private val api: LifeHackAPI) {
 
-    suspend fun getArticles(): List<CompanyRemoteModel> {
-        return api.getCompanies()
+    suspend fun getCompanyDetail(): CompanyRemoteModel {
+        return api.getCompanyDetail(
+            id =
+        )
     }
 
 }

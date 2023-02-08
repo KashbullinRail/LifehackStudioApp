@@ -12,7 +12,7 @@ interface LifeHackAPI {
 
 
     @GET("test.php")
-    suspend fun getSelectCompany(
+    suspend fun getCompanyDetail(
         @Query("id") id: String = "",
     ): List<CompanyRemoteModel>
 

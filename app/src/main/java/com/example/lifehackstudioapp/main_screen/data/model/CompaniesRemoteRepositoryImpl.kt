@@ -14,4 +14,8 @@ class CompaniesRemoteRepositoryImpl(private val source: CompaniesRemoteSource) :
         }
     }
 
+    override suspend fun getCompanyDetail(): CompanyModel {
+        TODO("Not yet implemented")
+    }
+
 }
