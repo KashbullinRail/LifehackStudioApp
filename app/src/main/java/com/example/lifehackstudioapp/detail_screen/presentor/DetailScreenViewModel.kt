@@ -8,7 +8,9 @@ import com.example.lifehackstudioapp.detail_screen.domain.CompanyDetailInteracto
 import com.example.lifehackstudioapp.detail_screen.domain.CompanyDetailModel
 import kotlinx.coroutines.launch
 
+
 const val REGEX_PHONE = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$"
+
 
 class DetailScreenViewModel(
     private val companyDetailInteractor: CompanyDetailInteractor
@@ -53,6 +55,11 @@ class DetailScreenViewModel(
                 return previousState.copy(
                     state = State.PhoneCallOpen
                 )
+            }
+            is UIEvent.OnWebsiteClicked -> {
+                    return previousState.copy(
+                        state = State.WebsiteOpen
+                    )
             }
 
             else -> return null

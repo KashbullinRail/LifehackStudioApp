@@ -1,6 +1,7 @@
 package com.example.lifehackstudioapp.detail_screen.presentor
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -18,6 +19,10 @@ import com.example.lifehackstudioapp.main_screen.presentation.URL_IMAGE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
+const val HTTPS = "https://www"
+const val WWW = "www"
+
+
 class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
 
     private val binding by viewBinding(FragmentDetailScreenBinding::bind)
@@ -32,12 +37,12 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
 
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
 
-        with(binding){
+        with(binding) {
             tvPhoneNumberDetail.setOnClickListener {
                 viewModel.processUIEvent(UIEvent.OnPhoneClicked)
             }
             tvWebsiteAdressDetail.setOnClickListener {
-
+                viewModel.processUIEvent(UIEvent.OnWebsiteClicked)
             }
             tvLatitudeDetail.setOnClickListener {
 
@@ -78,11 +83,32 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                     val intent = Intent(Intent.ACTION_DIAL)
                     intent.data = Uri.parse("tel: + ${viewState.companyDetail.phoneNumber}")
                     startActivity(intent)
-                } else Toast
-                    .makeText(requireContext().applicationContext, "номер набран не верно", Toast.LENGTH_LONG)
-                    .show()
+                } else Toast.makeText(
+                    requireContext().applicationContext,
+                    requireActivity().getString(R.string.phone_number_incorrected),
+                    Toast.LENGTH_LONG
+                ).show()
             }
             State.WebsiteOpen -> {
+                var web = viewState.companyDetail.websiteAddress
+                var webb = web
+                if (web.startsWith(WWW)) {
+                    webb = web.replaceFirst(WWW, HTTPS)
+                    println(webb)
+                }
+                if (webb.startsWith(HTTPS)) {
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(webb))
+                        startActivity(intent)
+                    } catch (e: ActivityNotFoundException) {
+                        Toast.makeText(
+                            requireContext(),
+                            requireActivity().getString(R.string.web_incorrected), Toast.LENGTH_LONG
+                        ).show()
+                        e.printStackTrace()
+                    }
+                }
+
 
             }
             State.Error -> {

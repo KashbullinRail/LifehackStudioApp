@@ -17,4 +17,10 @@
     <string name="phone_number">Номер телефона:</string>
     <string name="_79871236565">+79871236565</string>
 
+<!--    Toast and Snakbar-->
+    <string name="web_incorrected">"No application can handle this request."
+                                    + " Please install a webbrowser"</string>
+    <string name="phone_number_incorrected">"номер набран не верно"</string>
+
+
 </resources>
