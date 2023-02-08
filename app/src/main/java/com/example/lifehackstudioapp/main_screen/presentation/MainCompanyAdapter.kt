@@ -12,7 +12,6 @@ import com.example.lifehackstudioapp.databinding.ItemCompanyAdapterBinding
 import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 
 
-const val COMPANY_ITEM = "COMPANY_ITEM"
 const val URL_IMAGE = "https://lifehack.studio/test_task/"
 
 
@@ -25,6 +24,7 @@ class MainCompanyAdapter(
     ) : RecyclerView.ViewHolder(binding.root)
 
     var companies: List<CompanyModel> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
         set(newValue) {
             field = newValue
             notifyDataSetChanged()
@@ -47,8 +47,6 @@ class MainCompanyAdapter(
 
         val company = companies[position]
         with(holder.binding) {
-
-
             //setting variables
             holder.itemView.tag = company
             tvNameCompany.text = company.name
@@ -62,7 +60,6 @@ class MainCompanyAdapter(
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .centerCrop()
                 .into(ivCompany)
-
         }
 
     }

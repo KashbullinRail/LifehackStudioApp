@@ -6,10 +6,11 @@ import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 import com.example.lifehackstudioapp.main_screen.domain.CompaniesRepository
 
 
-class CompaniesRemoteRepositoryImpl(private val source: CompaniesRemoteSource) : CompaniesRepository {
+class CompaniesRemoteRepositoryImpl(private val source: CompaniesRemoteSource) :
+    CompaniesRepository {
 
     override suspend fun getCompaniesList(): List<CompanyModel> {
-        return source.getArticles().map {
+        return source.getCompaniesList().map {
             it.toDomain()
         }
     }

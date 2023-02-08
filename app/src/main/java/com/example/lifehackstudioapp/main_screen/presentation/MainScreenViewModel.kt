@@ -4,13 +4,15 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.lifehackstudioapp.base.BaseViewModel
 import com.example.lifehackstudioapp.base.Event
+import com.example.lifehackstudioapp.detail_screen.domain.CompanyDetailInteractor
 import com.example.lifehackstudioapp.main_screen.domain.CompaniesInteractor
 import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 import kotlinx.coroutines.launch
 
 
 class MainScreenViewModel(
-    private val companiesInteractor: CompaniesInteractor
+    private val companiesInteractor: CompaniesInteractor,
+    private val companyDetailInteractor: CompanyDetailInteractor
 ) : BaseViewModel<ViewState>() {
 
     init {
@@ -49,6 +51,7 @@ class MainScreenViewModel(
                 )
             }
             is UIEvent.OnCompanyClicked -> {
+                companyDetailInteractor.setCompanyId(previousState.companyShown[event.index].id)
                 return previousState.copy(
                     companyDetail = previousState.companyShown[event.index],
                     state = State.DetailLoad
