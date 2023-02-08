@@ -1,4 +1,4 @@
-package com.example.newsfetcher.base
+package com.example.lifehackstudioapp.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

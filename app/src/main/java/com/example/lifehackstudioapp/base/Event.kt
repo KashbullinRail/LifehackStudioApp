@@ -1,4 +1,4 @@
-package com.example.newsfetcher.base
+package com.example.lifehackstudioapp.base
 
 
 interface Event
