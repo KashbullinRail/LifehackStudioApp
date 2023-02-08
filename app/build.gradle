@@ -1,16 +1,17 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.example.lifehackstudioapp'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.lifehackstudioapp"
-        minSdk 23
-        targetSdk 32
+        minSdk 25
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -24,21 +25,64 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+    buildFeatures {
+        viewBinding true
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.0'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    dependencies {
+        // Custom lib
+        implementation "androidx.appcompat:appcompat:$appcompat_version"
+        implementation "com.google.android.material:material:$material_version"
+        implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+        // KTX core, fragment, activity
+        implementation "androidx.activity:activity-ktx:$activity_ktx_version"
+        implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+        implementation "androidx.core:core-ktx:$core_ktx_version"
+        // Reflection-free flavor
+        implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$viewbinding_propertydelegate"
+        // ViewModel
+        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_ktx_version"
+        // LiveData
+        implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_ktx_version"
+        // Retrofit
+        implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+        // Coroutines
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+        // OkHttpClient
+        implementation "com.squareup.okhttp3:okhttp:$OkHttpClient_version"
+        // GSON
+        implementation "com.google.code.gson:gson:$GSON_version"
+        // Retrofit converter
+        implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+        // Koin main features for Android
+        implementation "io.insert-koin:koin-android:$koin_version"
+        // Logging_Interceptor
+        implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+        // Room
+        implementation "androidx.room:room-runtime:$room_ktx_version"
+        kapt "androidx.room:room-compiler:$room_ktx_version"
+        implementation "androidx.room:room-ktx:$room_ktx_version"
+        // Navigation_Comp
+        implementation "androidx.navigation:navigation-runtime-ktx:$navigation_ktx_version"
+        implementation "androidx.navigation:navigation-fragment-ktx:$navigation_ktx_version"
+        implementation "androidx.navigation:navigation-ui-ktx:$navigation_ktx_version"
+        // Glide
+        implementation "com.github.bumptech.glide:glide:$glide_version"
+        kapt "com.github.bumptech.glide:compiler:$glide_version"
+        // SplashScreen API
+        implementation "androidx.core:core-splashscreen:$splash_screen_version"
+        // Tested libs
+        testImplementation "junit:junit:$junit_version"
+        androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+        androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+    }
 }
