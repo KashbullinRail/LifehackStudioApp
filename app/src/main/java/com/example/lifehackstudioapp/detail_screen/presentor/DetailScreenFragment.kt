@@ -1,8 +1,11 @@
 package com.example.lifehackstudioapp.detail_screen.presentor
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -28,6 +31,18 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
         }
 
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
+
+        with(binding){
+            tvPhoneNumberDetail.setOnClickListener {
+                viewModel.processUIEvent(UIEvent.OnPhoneClicked)
+            }
+            tvWebsiteAdressDetail.setOnClickListener {
+
+            }
+            tvLatitudeDetail.setOnClickListener {
+
+            }
+        }
 
     }
 
@@ -58,7 +73,14 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                 }
             }
             State.PhoneCallOpen -> {
-
+                val r = Regex(REGEX_PHONE)
+                if (r.matches(viewState.companyDetail.phoneNumber)) {
+                    val intent = Intent(Intent.ACTION_DIAL)
+                    intent.data = Uri.parse("tel: + ${viewState.companyDetail.phoneNumber}")
+                    startActivity(intent)
+                } else Toast
+                    .makeText(requireContext().applicationContext, "номер набран не верно", Toast.LENGTH_LONG)
+                    .show()
             }
             State.WebsiteOpen -> {
 
