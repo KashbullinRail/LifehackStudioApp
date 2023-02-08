@@ -45,7 +45,7 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                 viewModel.processUIEvent(UIEvent.OnWebsiteClicked)
             }
             tvLatitudeDetail.setOnClickListener {
-
+                viewModel.processUIEvent(UIEvent.OnMapCoordinate)
             }
         }
 
@@ -98,12 +98,10 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                         if (web.startsWith(WWW)) {
                             webSite = web.replaceFirst(WWW, HTTPS)
                             str = "  "
-                            println("YYYYYY= $webSite    RRRRR= $str")
                         } else {
                             str = web.first().toString()
                             webSite = web.replaceFirst(str, "${HTTPS}$str")
                         }
-                        println("888888= $webSite")
                     }
 
                     if (webSite.startsWith(HTTPS)) {
@@ -120,8 +118,14 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                         }
                     }
                 }
-
-
+            }
+            State.MapCoordinate -> {
+                val lat = viewState.companyDetail.latitude.toString()
+                val lon = viewState.companyDetail.longitude.toString()
+                val gmmIntentUri = Uri.parse("geo:${lat},${lon}")
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                mapIntent.setPackage("com.google.android.apps.maps")
+                startActivity(mapIntent)
             }
             State.Error -> {
                 //TODO for future implementation, when the backend is ready

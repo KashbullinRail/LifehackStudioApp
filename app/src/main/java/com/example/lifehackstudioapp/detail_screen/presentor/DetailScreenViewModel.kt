@@ -61,6 +61,11 @@ class DetailScreenViewModel(
                         state = State.WebsiteOpen
                     )
             }
+            is UIEvent.OnMapCoordinate -> {
+                return previousState.copy(
+                    state = State.MapCoordinate
+                )
+            }
 
             else -> return null
         }
