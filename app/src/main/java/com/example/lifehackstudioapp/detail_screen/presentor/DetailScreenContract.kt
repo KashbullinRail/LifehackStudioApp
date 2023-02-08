@@ -9,6 +9,7 @@ enum class State {
     Content,
     WebsiteOpen,
     PhoneCallOpen,
+    MapCoordinate,
     Error
 }
 
@@ -20,6 +21,7 @@ data class ViewState(
 sealed class UIEvent : Event {
     object OnWebsiteClicked : UIEvent()
     object OnPhoneClicked : UIEvent()
+    object OnMapCoordinate: UIEvent()
 }
 
 sealed class DateEvent : Event {
