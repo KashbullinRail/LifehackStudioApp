@@ -1,9 +1,9 @@
 package com.example.lifehackstudioapp.main_screen.domain
 
+import com.example.newsfetcher.base.attempt
 
 
-
-class CompaniesListInteractor(private val repository: CompaniesListRepository) {
+class CompaniesInteractor(private val repository: CompaniesRepository) {
 
     suspend fun getCompaniesList() = attempt {
         repository.getCompaniesList()

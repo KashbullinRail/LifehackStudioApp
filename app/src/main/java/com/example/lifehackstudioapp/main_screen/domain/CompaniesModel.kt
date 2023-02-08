@@ -1,6 +1,6 @@
 package com.example.lifehackstudioapp.main_screen.domain
 
-data class CompaniesListModel(
+data class CompaniesModel(
     val id: Int,
     val name: String,
     val img: String
