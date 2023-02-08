@@ -19,8 +19,8 @@ import com.example.lifehackstudioapp.main_screen.presentation.URL_IMAGE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-const val HTTPS = "https://www"
-const val WWW = "www"
+const val HTTPS = "https://www."
+const val WWW = "www."
 
 
 class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
@@ -90,22 +90,34 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                 ).show()
             }
             State.WebsiteOpen -> {
-                var web = viewState.companyDetail.websiteAddress
-                var webb = web
-                if (web.startsWith(WWW)) {
-                    webb = web.replaceFirst(WWW, HTTPS)
-                    println(webb)
-                }
-                if (webb.startsWith(HTTPS)) {
-                    try {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(webb))
-                        startActivity(intent)
-                    } catch (e: ActivityNotFoundException) {
-                        Toast.makeText(
-                            requireContext(),
-                            requireActivity().getString(R.string.web_incorrected), Toast.LENGTH_LONG
-                        ).show()
-                        e.printStackTrace()
+                val web = viewState.companyDetail.websiteAddress
+                var webSite = ""
+                var str = ""
+                if (web.isNotEmpty()) {
+                    if (!(web.startsWith(HTTPS))) {
+                        if (web.startsWith(WWW)) {
+                            webSite = web.replaceFirst(WWW, HTTPS)
+                            str = "  "
+                            println("YYYYYY= $webSite    RRRRR= $str")
+                        } else {
+                            str = web.first().toString()
+                            webSite = web.replaceFirst(str, "${HTTPS}$str")
+                        }
+                        println("888888= $webSite")
+                    }
+
+                    if (webSite.startsWith(HTTPS)) {
+                        try {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(webSite))
+                            startActivity(intent)
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(
+                                requireContext(),
+                                requireActivity().getString(R.string.web_incorrected),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            e.printStackTrace()
+                        }
                     }
                 }
 
