@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DetailScreenFragment">
+
+    <TextView
+        android:id="@+id/tvCompanyNameDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/company_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCompanyImgDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:importantForAutofill="auto"
+        android:maxHeight="300dp"
+        android:minHeight="200dp"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/avatars"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyNameDetail" />
+
+    <TextView
+        android:id="@+id/tvDataDescriptionDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="10"
+        tools:text="@tools:sample/lorem/random"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCompanyImgDetail" />
+
+    <TextView
+        android:id="@+id/tvCoordinateDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/coordinates"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tvDataDescriptionDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvDataDescriptionDetail" />
+
+    <TextView
+        android:id="@+id/tvLatitudeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_56_56"
+        app:layout_constraintStart_toStartOf="@+id/tvCoordinateDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvCoordinateDetail" />
+
+    <TextView
+        android:id="@+id/tvLongtitudeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/_65_65"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLatitudeDetail"
+        app:layout_constraintStart_toEndOf="@+id/tvLatitudeDetail"
+        app:layout_constraintTop_toTopOf="@+id/tvLatitudeDetail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWebsiteDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/company_website"
+        app:layout_constraintStart_toStartOf="@+id/tvLatitudeDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvLatitudeDetail" />
+
+    <TextView
+        android:id="@+id/tvWebsiteAdressDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/http"
+        android:textStyle="bold"
+        android:textColor="@color/purple_200"
+        app:layout_constraintStart_toStartOf="@+id/tvWebsiteDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvWebsiteDetail" />
+
+    <TextView
+        android:id="@+id/tvTextPhoneNumberDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/phone_number"
+        app:layout_constraintStart_toStartOf="@+id/tvWebsiteAdressDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvWebsiteAdressDetail" />
+
+    <TextView
+        android:id="@+id/tvPhoneNumberDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/_79871236565"
+        android:textStyle="bold"
+        android:textColor="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTextPhoneNumberDetail"
+        app:layout_constraintStart_toEndOf="@+id/tvTextPhoneNumberDetail"
+        app:layout_constraintTop_toTopOf="@+id/tvTextPhoneNumberDetail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pbDetailScreen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCompanyImgDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ivCompanyImgDetail"
+        app:layout_constraintTop_toTopOf="@+id/ivCompanyImgDetail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
