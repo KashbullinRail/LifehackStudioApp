@@ -14,7 +14,7 @@ class DetailScreenViewModel(
 ) : BaseViewModel<ViewState>() {
 
     init {
-        processDataEvent(DateEvent.LoadCompanies)
+        processDataEvent(DateEvent.LoadCompanyDetail)
     }
 
     override fun initialViewState() = ViewState(
@@ -28,31 +28,32 @@ class DetailScreenViewModel(
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
 
         when (event) {
-            is DateEvent.LoadCompanies -> {
+            is UIEvent.OnDetailCompanyGet -> {
+                return previousState.copy(
+                    companyDetail = event.detailCompany
+                )
+            }
+            is DateEvent.LoadCompanyDetail -> {
                 viewModelScope.launch {
-                    companyDetailInteractor.getCompanyDetail().fold(
+                    companyDetailInteractor.getCompanyDetail(previousState.companyDetail.id).fold(
                         onError = {
                             Log.e("ERROR", it.localizedMessage)
                             State.Error
                         },
                         onSuccess = {
-                            processDataEvent(DateEvent.OnLoadCompaniesSucceed(it))
+                            processDataEvent(DateEvent.OnLoadCompanyDetailSucceed(it))
                         }
                     )
                 }
                 return null
             }
-            is DateEvent.OnLoadCompaniesSucceed -> {
+            is DateEvent.OnLoadCompanyDetailSucceed -> {
                 return previousState.copy(
-
+                    companyDetail = event.companyShown,
                     state = State.Content
                 )
             }
-            is UIEvent.OnCompanyClicked -> {
-                return previousState.copy(
 
-                )
-            }
 
             else -> return null
         }

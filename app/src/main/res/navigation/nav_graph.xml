@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailScreenFragment"
-        android:name="com.example.lifehackstudioapp.DetailScreenFragment"
+        android:name="com.example.lifehackstudioapp.detail_screen.presentor.DetailScreenFragment"
         android:label="fragment_detail_screen"
         tools:layout="@layout/fragment_detail_screen" >
         <action

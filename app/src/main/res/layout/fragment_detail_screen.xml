@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DetailScreenFragment">
+    tools:context="detail_screen.presentor.DetailScreenFragment">
 
     <TextView
         android:id="@+id/tvCompanyNameDetail"
@@ -34,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCompanyNameDetail" />
 
     <TextView
-        android:id="@+id/tvDataDescriptionDetail"
+        android:id="@+id/tvDescriptionDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -52,8 +53,8 @@
         android:layout_marginTop="20dp"
         android:text="@string/coordinates"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvDataDescriptionDetail"
-        app:layout_constraintTop_toBottomOf="@+id/tvDataDescriptionDetail" />
+        app:layout_constraintStart_toStartOf="@+id/tvDescriptionDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionDetail" />
 
     <TextView
         android:id="@+id/tvLatitudeDetail"

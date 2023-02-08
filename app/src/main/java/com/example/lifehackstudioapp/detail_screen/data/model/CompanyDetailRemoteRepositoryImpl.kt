@@ -12,8 +12,8 @@ import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 
 class CompanyDetailRemoteRepositoryImpl(private val source: CompanyDetailRemoteSource) : CompanyDetailRepository {
 
-    override suspend fun getCompanyDetail(): CompanyDetailModel {
-       return source.getCompanyDetail().toDomain()
+    override suspend fun getCompanyDetail(companyId: String): CompanyDetailModel {
+       return source.getCompanyDetail(companyId).toDomain()
     }
 
 }

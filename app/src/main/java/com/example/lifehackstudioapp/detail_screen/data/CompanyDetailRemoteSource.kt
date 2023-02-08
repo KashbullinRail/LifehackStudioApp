@@ -6,9 +6,9 @@ import com.example.lifehackstudioapp.main_screen.data.model.CompanyRemoteModel
 
 class CompanyDetailRemoteSource(private val api: CompanyDetailAPI) {
 
-    suspend fun getCompanyDetail(): CompanyDetailRemoteModel {
+    suspend fun getCompanyDetail(companyId: String): CompanyDetailRemoteModel {
         return api.getCompanyDetail(
-            id = "1"
+            id = companyId
         )
     }
 

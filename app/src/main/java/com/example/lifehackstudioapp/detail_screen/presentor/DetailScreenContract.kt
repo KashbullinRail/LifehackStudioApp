@@ -18,10 +18,12 @@ data class ViewState(
 )
 
 sealed class UIEvent : Event {
-    object OnCompanyClicked : UIEvent()
+    data class OnDetailCompanyGet(val detailCompany: CompanyDetailModel) : UIEvent()
+    object OnWebsiteClicked : UIEvent()
+    object OnPhoneClicked : UIEvent()
 }
 
 sealed class DateEvent : Event {
-    object LoadCompanies : DateEvent()
-    data class OnLoadCompaniesSucceed(val company: CompanyDetailModel) : DateEvent()
+    object LoadCompanyDetail : DateEvent()
+    data class OnLoadCompanyDetailSucceed(val companyShown: CompanyDetailModel) : DateEvent()
 }

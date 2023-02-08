@@ -49,10 +49,10 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             }
             State.DetailLoad -> {
                 binding.pbMainScreen.isVisible = false
-                val articleDetail = viewState.companyDetail
+                val companyDetail = viewState.companyDetail
                 Log.d("TAGG", "${viewState.companyDetail}")
-//                val bundle = bundleOf(PUT_TO_DETAIL_FRAGMENT to articleDetail)
-//                findNavController().navigate(R.id.detailFragment, bundle)
+                val bundle = bundleOf(PUT_TO_DETAIL_FRAGMENT to companyDetail)
+                findNavController().navigate(R.id.detailScreenFragment, bundle)
             }
         }
     }
