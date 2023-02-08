@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">LifehackStudioApp</string>
+
+<!--    For MainScreenFragment-->
+    <string name="_123">ID</string>
+    <string name="image_name">image_name</string>
+
+    <string name="error">Что-то пошло не так</string>
+
+<!--    For DetailScreenFragment-->
+    <string name="company_name">Название компании</string>
+    <string name="coordinates">Координаты:</string>
+    <string name="_56_56">56.56</string>
+    <string name="_65_65">65.65</string>
+    <string name="company_website">Сайт компании:</string>
+    <string name="http">http//.......</string>
+    <string name="phone_number">Номер телефона:</string>
+    <string name="_79871236565">+79871236565</string>
+
+<!--    Toast and Snakbar-->
+    <string name="web_incorrected">"No application can handle this request."
+                                    + " Please install a webbrowser"</string>
+    <string name="phone_number_incorrected">"номер набран не верно"</string>
+
+
 </resources>
