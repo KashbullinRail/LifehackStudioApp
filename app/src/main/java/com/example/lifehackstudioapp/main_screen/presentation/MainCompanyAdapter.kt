@@ -12,9 +12,6 @@ import com.example.lifehackstudioapp.databinding.ItemCompanyAdapterBinding
 import com.example.lifehackstudioapp.main_screen.domain.CompanyModel
 
 
-const val URL_IMAGE = "https://lifehack.studio/test_task/"
-
-
 class MainCompanyAdapter(
     val onItemClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<MainCompanyAdapter.MainCompanyViewHolder>() {

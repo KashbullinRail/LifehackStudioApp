@@ -1,5 +1,6 @@
 package com.example.lifehackstudioapp.detail_screen.domain
 
+
 data class CompanyDetailModel(
     val id: String,
     val name: String,

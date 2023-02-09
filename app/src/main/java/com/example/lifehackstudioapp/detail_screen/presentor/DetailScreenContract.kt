@@ -21,7 +21,7 @@ data class ViewState(
 sealed class UIEvent : Event {
     object OnWebsiteClicked : UIEvent()
     object OnPhoneClicked : UIEvent()
-    object OnMapCoordinate: UIEvent()
+    object OnMapCoordinate : UIEvent()
 }
 
 sealed class DateEvent : Event {

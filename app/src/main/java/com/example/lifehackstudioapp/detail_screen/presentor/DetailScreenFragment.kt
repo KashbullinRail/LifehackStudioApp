@@ -19,10 +19,6 @@ import com.example.lifehackstudioapp.main_screen.presentation.URL_IMAGE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-const val HTTPS = "https://www."
-const val WWW = "www."
-
-
 class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
 
     private val binding by viewBinding(FragmentDetailScreenBinding::bind)
@@ -124,7 +120,7 @@ class DetailScreenFragment : Fragment(R.layout.fragment_detail_screen) {
                 val lon = viewState.companyDetail.longitude.toString()
                 val gmmIntentUri = Uri.parse("geo:${lat},${lon}")
                 val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-                mapIntent.setPackage("com.google.android.apps.maps")
+                mapIntent.setPackage(GOOGLE_MAPS)
                 startActivity(mapIntent)
             }
             State.Error -> {

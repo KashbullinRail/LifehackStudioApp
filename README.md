@@ -57,4 +57,4 @@ open web browser function implemented for DetailScreenFragment.kt
 open google maps function finished for DetailScreenFragment.kt
 0.5 hour
 
-Total time: 8 hour
+TOTAL TIME: 8 hour
